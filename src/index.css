@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #faf9f6;
+    --gold-primary: #d97706;
+    --gold-bright: #f59e0b;
+    --gold-light: #fef3c7;
+    --gold-glow: rgba(217, 119, 6, 0.25);
+    --gray-dark: #0f172a;
+    --gray-body: #475569;
+    --gray-muted: #64748b;
+    --gray-border: #e2e8f0;
+    --gray-card: #ffffff;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--gray-dark);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+}
+
+/* Custom Scrollbar in Warm Gold / Slate */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(217, 119, 6, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 119, 6, 0.6);
+}
+
+/* Bright Frosted White & Gold Glass Panels */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -5px rgba(217, 119, 6, 0.08), 0 0 15px rgba(245, 158, 11, 0.05);
+}
+
+.glass-panel-elevated {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  box-shadow: 0 14px 40px -8px rgba(217, 119, 6, 0.18), 0 0 25px rgba(245, 158, 11, 0.12);
+}
+
+.glass-panel-gold {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(254, 243, 199, 0.45) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  box-shadow: 0 12px 35px -6px rgba(217, 119, 6, 0.22), 0 0 25px rgba(245, 158, 11, 0.15);
+}
+
+/* Glowing Gold Shadows */
+.gold-glow {
+  box-shadow: 0 12px 35px -6px rgba(217, 119, 6, 0.28), 0 0 25px rgba(245, 158, 11, 0.2);
+}
+
+.gold-glow-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gold-glow-hover:hover {
+  box-shadow: 0 18px 45px -8px rgba(217, 119, 6, 0.35), 0 0 35px rgba(245, 158, 11, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Crisp Clean Inputs with Gold Glow Focus */
+.glass-input {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  background: #ffffff;
+  border-color: #d97706;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.18), 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+/* Metallic & Radiant Gold Gradient Texts */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 40%, #f59e0b 80%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Shimmer Light Sweep */
+@keyframes gold-sweep {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+.gold-sweep-btn {
+  position: relative;
+  overflow: hidden;
+}
+.gold-sweep-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: translateX(-100%) rotate(25deg);
+}
+.gold-sweep-btn:hover::after {
+  animation: gold-sweep 1s ease-in-out;
+}
+
+/* Ambient Subtle Floating Shimmers */
+@keyframes float-subtle {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(20px, -20px) scale(1.05); }
+}
+
+.animate-float-warm {
+  animation: float-subtle 16s ease-in-out infinite;
+}
